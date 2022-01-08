@@ -5,7 +5,9 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:flutter/material.dart';
 
 class Register extends StatefulWidget {
-  const Register({ Key? key }) : super(key: key);
+  
+  final Function toggleView;
+  Register({ required this.toggleView });
 
   @override
   _RegisterState createState() => _RegisterState();
@@ -26,7 +28,16 @@ class _RegisterState extends State<Register> {
       appBar: AppBar(
         backgroundColor: Colors.black12,
         elevation: 0.0,
-        title: Text('Sign up')
+        title: Text('Sign up'),
+        actions: <Widget>[
+          FlatButton.icon(
+            icon: Icon(Icons.person), 
+            label: Text("Sign In"),
+            onPressed: () {
+              widget.toggleView();  
+            }, 
+            ),
+        ],
       ),
       body: Container(
         padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),

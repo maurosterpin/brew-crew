@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 class SignIn extends StatefulWidget {
-  const SignIn({ Key? key }) : super(key: key);
+  
+    final Function toggleView;
+    SignIn({ required this.toggleView });
 
   @override
   _SignInState createState() => _SignInState();
@@ -24,7 +26,16 @@ class _SignInState extends State<SignIn> {
       appBar: AppBar(
         backgroundColor: Colors.black12,
         elevation: 0.0,
-        title: Text('Sign in')
+        title: Text('Sign in'),
+        actions: <Widget>[
+          FlatButton.icon(
+            icon: Icon(Icons.person), 
+            label: Text("Register"),
+            onPressed: () {
+              widget.toggleView(); 
+            }, 
+            ),
+        ],
       ),
       body: Container(
         padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
