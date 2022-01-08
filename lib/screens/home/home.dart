@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:brew_crew/services/database.dart';
 import 'package:provider/provider.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:brew_crew/screens/home/brew_list.dart';
+import 'package:brew_crew/models/brew.dart';
 
 class Home extends StatelessWidget {
 
@@ -13,7 +13,7 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StreamProvider<QuerySnapshot>.value(
+    return StreamProvider<Iterable<Brew>?>.value(
       initialData: null,
       value: DatabaseService(uid: '').brews,
       child: Scaffold(

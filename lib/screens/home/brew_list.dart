@@ -12,8 +12,11 @@ class _BrewListState extends State<BrewList> {
   @override
   Widget build(BuildContext context) {
 
-    final brews = Provider.of<QuerySnapshot>(context);
-    print(brews);
+    final brews = Provider.of<QuerySnapshot?>(context);
+    
+    for(var doc in brews.docs){
+      print(doc.data());
+    }
 
     return Container(
       
