@@ -22,7 +22,7 @@ class _RegisterState extends State<Register> {
   String email = '';
   String password = '';
   String error = '';
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -82,7 +82,7 @@ class _RegisterState extends State<Register> {
               Text(
                 error,
                 style: TextStyle(color: Colors.red, fontSize: 14.0),
-              )
+              ),
             ],
           ),
         ),
